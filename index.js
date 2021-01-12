@@ -15,3 +15,4 @@ fetch("http://localhost:3000/dogs", {
 
                 .then(s = data => console.log(data))
                 .catch(error => console.loglog('error'))
+});
