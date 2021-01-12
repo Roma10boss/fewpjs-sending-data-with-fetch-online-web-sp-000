@@ -1,18 +1,25 @@
-// Add your code here
-fetch("http://localhost:3000/dogs", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                    dogName: "Byron",
-                    dogBreed: "Poodle"
-                })
-                .then(res => {
-                    return res.json()
-                })
-
-                .then(s = data => console.log(data))
-                .catch(error => console.loglog('error'))
-});
+let formData = {
+  dogName: "Byron",
+  dogBreed: "Poodle"
+};
+ 
+// method: "POST" is missing from the object below
+let configObj = {
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify(formData)
+};
+ 
+fetch("http://localhost:3000/dogs", configObj)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(object) {
+    console.log(object);
+  })
+  .catch(function(error) {
+    alert("Bad things! Ragnarők!");
+    console.log(error.message);
+  });
